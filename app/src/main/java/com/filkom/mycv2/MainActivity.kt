@@ -31,18 +31,15 @@ fun AppNavigation() {
 
     NavHost(navController = navController, startDestination = "login") {
 
-        // ✅ Halaman Login
         composable("login") {
             LoginScreen(
                 onLoginClick = {
-                    // bisa ganti dummy data dengan data inputan login nantinya
                     navController.navigate("detail/nim123/NamaUser/email@user.com/AlamatUser")
                 },
                 onDaftarClick = { navController.navigate("daftar") }
             )
         }
 
-        // ✅ Halaman Daftar
         composable("daftar") {
             DaftarScreen(
                 onSimpanClick = { nim, nama, email, alamat ->
@@ -52,7 +49,6 @@ fun AppNavigation() {
             )
         }
 
-        // ✅ Halaman Detail dengan data
         composable(
             "detail/{nim}/{nama}/{email}/{alamat}",
             arguments = listOf(
